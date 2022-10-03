@@ -1,6 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -8,7 +5,7 @@ public class CardDeck : MonoBehaviour
 {
    [SerializeField] private Sprite[] cardSprite;
    private int[] cardValues = new int[53];
-   private int currentIndex = 0;
+   private int currentIndex;
 
    private void Start()
    {
@@ -17,17 +14,16 @@ public class CardDeck : MonoBehaviour
 
    void GetCardsValues()
    {
-      int num = 0;
       for (int i = 0; i < cardSprite.Length; i++)
       {
-         num = i;
+         var num = i;
          num %= 13;
          if (num > 10 || num == 0)
          {
             num = 10;
          }
 
-         cardValues[i] = num++;
+         cardValues[i] = num;
       }
    }
 
@@ -47,6 +43,9 @@ public class CardDeck : MonoBehaviour
    {
       card.SetSprite(cardSprite[currentIndex]);
       card.SetValue(cardValues[currentIndex++]);
+     
+      currentIndex++;
+     
       return card.GetValue();
    }
 

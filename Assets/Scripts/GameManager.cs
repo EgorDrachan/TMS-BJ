@@ -1,11 +1,5 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Mime;
 using TMPro;
-using Unity.Collections;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
@@ -43,12 +37,12 @@ public class GameManager : MonoBehaviour
     private void StandClicked()
     {
         standClick++;
-        HitDeal();
-        standButtonText.text = "Call";
         if (standClick > 1)
         {
             RoundResult();
         }
+        HitDeal();
+        standButtonText.text = "Call";
     }
 
     private void HitDeal()
@@ -66,7 +60,7 @@ public class GameManager : MonoBehaviour
 
     private void HitClicked()
     {
-        if (player.GetCard() <= 10)
+        if (player.cardIndex <= 10)
         {
             player.GetCard();
             scoreText.text = "Score: " + player.handValue.ToString();
@@ -81,20 +75,31 @@ public class GameManager : MonoBehaviour
     {
         player.ResetHand();
         dealer.ResetHand();
+        
         mainText.gameObject.SetActive(false);
         dealText.gameObject.SetActive(false);
+        dealText.gameObject.SetActive(false);
+        
         GameObject.Find("CardDeck").GetComponent<CardDeck>().Shuffle();
+        
         player.StartHand();
         dealer.StartHand();
+        
         scoreText.text = "Hand: " + player.handValue.ToString();
         dealText.text = "Hand: " + dealer.handValue.ToString();
+        
         hideCard.GetComponent<Renderer>().enabled = true;
+        
         dealButton.gameObject.SetActive(false);
         hitButton.gameObject.SetActive(true);
         standButton.gameObject.SetActive(true);
         standButtonText.text = "Stand";
-
-        pot = 40;
+        
+        BetCheck();
+    }
+    private void BetCheck()
+    {
+        pot = 20;
         betText.text = pot.ToString();
         player.Bank(-20);
         bankText.text = player.GetMoney().ToString();
@@ -102,24 +107,24 @@ public class GameManager : MonoBehaviour
 
     private void RoundResult()
     { 
-        bool playerLose = player.handValue > 21;
-        bool dealerLose = player.handValue > 21;
-        bool playerWin = player.handValue == 21;
-        bool dealerWin = player.handValue == 21;
+        var playerLose = player.handValue > 21;
+        var dealerLose = player.handValue > 21;
+        var playerWin = player.handValue == 21;
+        var dealerWin = player.handValue == 21;
 
         if (standClick < 2 && !playerLose && !playerWin && !dealerLose && !dealerWin)
         {
             return;
         }
 
-        bool roundOver = true;
+        var roundOver = true;
+       
         if (playerLose && dealerLose)
         {
-            mainText.text = "Stay";
-            player.Bank(pot / 2);
+            mainText.text = "Dealer Win!";
         }
         
-        else if (playerLose || !dealerLose && dealer.handValue > player.handValue)
+        else if (playerLose || (!dealerLose && dealer.handValue > player.handValue))
         {
             mainText.text = "Dealer Win!";
         }
@@ -148,24 +153,25 @@ public class GameManager : MonoBehaviour
             dealButton.gameObject.SetActive(true);
             mainText.gameObject.SetActive(true);
             dealText.gameObject.SetActive(true);
+            
             hideCard.GetComponent<Renderer>().enabled = false;
+            
             bankText.text = player.GetMoney().ToString();
+            
             standClick = 0;
         }
     }
 
-    public void BetClick()
+    private void BetClick()
     {
-        Text newBet = betButton.GetComponentInChildren(typeof(Text)) as Text;
+        var newBet = betButton.GetComponentInChildren(typeof(Text)) as Text;
         if (newBet != null)
         {
-            int bet = int.Parse(newBet.text.ToString().Remove(0, 1));
+            var bet = int.Parse(newBet.text.ToString().Remove(0, 1));
             player.Bank(-bet);
             bankText.text = player.GetMoney().ToString();
             pot += (bet * 2);
+            betText.text = pot.ToString();
         }
-
-        betText.text = pot.ToString();
-
     }
 }

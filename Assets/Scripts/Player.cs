@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
       var cardValue = cardDeck.DealCard(hand[cardIndex].GetComponent<Card>());
       hand[cardIndex].GetComponent<Renderer>().enabled = true;
       handValue += cardValue;
+      
       if (cardValue == 1)
       {
          aceList.Add(hand[cardIndex].GetComponent<Card>());
@@ -77,5 +78,4 @@ public class Player : MonoBehaviour
       handValue = 0;
       aceList = new List<Card>();
    }
-
 }
