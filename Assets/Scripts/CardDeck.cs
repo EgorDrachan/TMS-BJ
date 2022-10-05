@@ -4,7 +4,12 @@ using Random = UnityEngine.Random;
 public class CardDeck : MonoBehaviour
 {
    [SerializeField] private Sprite[] cardSprite;
-   private int[] cardValues = new int[53];
+   
+   private const int CardSum = 53;
+   private const int AceCoef = 13;
+   private const int MaxAceCoef = 10;
+  
+   private int[] cardValues = new int[CardSum];
    private int currentIndex;
 
    private void Start()
@@ -17,10 +22,10 @@ public class CardDeck : MonoBehaviour
       for (int i = 0; i < cardSprite.Length; i++)
       {
          var num = i;
-         num %= 13;
-         if (num > 10 || num == 0)
+         num %= AceCoef;
+         if (num > MaxAceCoef || num == 0)
          {
-            num = 10;
+            num = MaxAceCoef;
          }
 
          cardValues[i] = num;

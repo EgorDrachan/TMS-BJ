@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &44559934
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -512,6 +513,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &108272483
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -610,6 +612,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &150559858
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -910,6 +913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!1 &239246739
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,6 +1038,7 @@ MonoBehaviour:
   pot: 0
   standClick: 0
   hideCard: {fileID: 1877140898}
+  _deck: {fileID: 0}
 --- !u!4 &346890029
 Transform:
   m_ObjectHideFlags: 0
@@ -1786,6 +1791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &533889046
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1884,6 +1890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &539071210
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1982,6 +1989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &540878021
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2080,6 +2088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &574186588
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2300,6 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &728038097
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2487,7 +2497,7 @@ GameObject:
   - component: {fileID: 823539155}
   m_Layer: 0
   m_Name: CardDeck
-  m_TagString: Untagged
+  m_TagString: Deck
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2723,6 +2733,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!1 &983356506
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,6 +2780,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &983356509
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2890,6 +2902,51 @@ MonoBehaviour:
   - {fileID: 574186585}
   - {fileID: 108272481}
   cardIndex: 0
+--- !u!1 &1054705958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1054705960}
+  - component: {fileID: 1054705959}
+  m_Layer: 0
+  m_Name: Ads
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1054705959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054705958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25e3f88567119c54b8634d950de921b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  testMode: 1
+--- !u!4 &1054705960
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1054705958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.28316906, y: -0.18725255, z: -0.045981236}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1082791277
 GameObject:
   m_ObjectHideFlags: 0
@@ -3123,6 +3180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!1 &1137153992
 GameObject:
   m_ObjectHideFlags: 0
@@ -3238,6 +3296,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &1238342161
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3705,6 +3764,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &1423840995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3881,6 +3941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &1581634612
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4597,6 +4658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &1871127824
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4695,6 +4757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &1875262343
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4778,6 +4841,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &1877140900
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4891,6 +4955,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &1973485120
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4978,7 +5043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 225.78003, y: -38.680054}
+  m_AnchoredPosition: {x: 225.78003, y: -38.680176}
   m_SizeDelta: {x: 451.56, y: 77.20001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2009422964
@@ -5124,6 +5189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!212 &2017727912
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5274,6 +5340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 0
+  _deck: {fileID: 0}
 --- !u!1 &2134144807
 GameObject:
   m_ObjectHideFlags: 0

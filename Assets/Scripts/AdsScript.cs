@@ -8,7 +8,7 @@ public class AdsScript : MonoBehaviour, IUnityAdsListener
 {
    [SerializeField] private bool testMode = true;
 
-    private string gameId = "4957409"; //ваш game id
+    private string gameId = "4957409"; 
 
     private string video = "Interstitial_Android";
     private string rewardedVideo = "Rewarded_Android";

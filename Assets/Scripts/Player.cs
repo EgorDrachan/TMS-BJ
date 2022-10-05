@@ -17,6 +17,12 @@ public class Player : MonoBehaviour
 
    private List<Card> aceList = new List<Card>();
 
+   private const int AceLimit = 10;
+   private const int MaxAceValue = 11;
+   private const int MinAceValue = 1;
+   private const int HandLimit = 21;
+   private const int HandEnumeration = 22;
+
    public void StartHand()
    {
       GetCard();
@@ -39,19 +45,19 @@ public class Player : MonoBehaviour
       
    }
 
-   public void AceCheck()
+   private void AceCheck()
    {
       foreach (Card ace in aceList)
       {
-         if (handValue + 10 < 22 && ace.GetValue() == 11)
+         if (handValue + MaxAceValue < HandEnumeration && ace.GetValue() == MaxAceValue)
          {
-            ace.SetValue(11);
-            handValue += 10;
+            ace.SetValue(MaxAceValue);
+            handValue += AceLimit;
          }
-         else if(handValue > 21 && ace.GetValue() == 11)
+         else if(handValue > HandLimit && ace.GetValue() == MaxAceValue)
          {
-            ace.SetValue(1);
-            handValue -= 10;
+            ace.SetValue(MinAceValue);
+            handValue -= AceLimit;
          }
       }
    }

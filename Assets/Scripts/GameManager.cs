@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 
 public class GameManager : MonoBehaviour
 {
@@ -22,17 +23,27 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI standButtonText;
     [SerializeField] private TextMeshProUGUI mainText;
 
+    private const int BJ = 21;
+
     public int pot = 0;
 
     public int standClick = 0;
 
     public GameObject hideCard;
+
+    [SerializeField] private CardDeck _deck;
     private void Start()
     {
         dealButton.onClick.AddListener(DealClicked);
         hitButton.onClick.AddListener(HitClicked);
         standButton.onClick.AddListener(StandClicked);
         betButton.onClick.AddListener(BetClick);
+
+        if (_deck == null)
+        {
+            _deck = GameObject.FindWithTag("Deck").GetComponent<CardDeck>();
+        }
+        
     }
     private void StandClicked()
     {
@@ -50,7 +61,7 @@ public class GameManager : MonoBehaviour
         while (dealer.handValue < 17 && dealer.cardIndex < 10)
         {
             dealer.GetCard();
-            dealText.text = "Score: " + dealer.handValue.ToString();
+            dealText.text = $"Score : {player.handValue.ToString()}";
             if (dealer.handValue > 20)
             {
                 RoundResult();
@@ -63,7 +74,7 @@ public class GameManager : MonoBehaviour
         if (player.cardIndex <= 10)
         {
             player.GetCard();
-            scoreText.text = "Score: " + player.handValue.ToString();
+            scoreText.text =  $"Score : {player.handValue.ToString()}";
             if (player.handValue > 20)
             {
                 RoundResult();
@@ -76,11 +87,11 @@ public class GameManager : MonoBehaviour
         player.ResetHand();
         dealer.ResetHand();
         
+        _deck.Shuffle();
+        
         mainText.gameObject.SetActive(false);
         dealText.gameObject.SetActive(false);
         dealText.gameObject.SetActive(false);
-        
-        GameObject.Find("CardDeck").GetComponent<CardDeck>().Shuffle();
         
         player.StartHand();
         dealer.StartHand();
@@ -107,10 +118,10 @@ public class GameManager : MonoBehaviour
 
     private void RoundResult()
     { 
-        var playerLose = player.handValue > 21;
-        var dealerLose = player.handValue > 21;
-        var playerWin = player.handValue == 21;
-        var dealerWin = player.handValue == 21;
+        var playerLose = player.handValue > BJ;
+        var dealerLose = player.handValue > BJ;
+        var playerWin = player.handValue == BJ;
+        var dealerWin = player.handValue == BJ;
 
         if (standClick < 2 && !playerLose && !playerWin && !dealerLose && !dealerWin)
         {

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,18 @@ using UnityEngine;
 public class Card : MonoBehaviour
 {
   [SerializeField] private int value = 0;
+  private SpriteRenderer _spriteRenderer;
+  [SerializeField] private CardDeck _deck;
+
+  private void Start()
+  {
+    _spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    
+    if (_deck == null)
+    {
+      _deck = GameObject.FindWithTag("Deck").GetComponent<CardDeck>();
+    }
+  }
 
   public int GetValue()
   {
@@ -23,12 +36,12 @@ public class Card : MonoBehaviour
   
   public void SetSprite(Sprite newSprite)
   {
-    gameObject.GetComponent<SpriteRenderer>().sprite = newSprite;
+    _spriteRenderer.sprite = newSprite;
   }
 
   public void ResetCard()
   {
-    Sprite back = GameObject.Find("CardDeck").GetComponent<CardDeck>().GetCardBack();
+    Sprite back = _deck.GetCardBack();
     gameObject.GetComponent<SpriteRenderer>().sprite = back;
     value = 0;
   }
