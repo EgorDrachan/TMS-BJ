@@ -148,6 +148,7 @@ public class GameManager : MonoBehaviour
 
         if (roundOver)
         {
+            AdsScript.ShowAdsVideo("Interstitial Android");
             hitButton.gameObject.SetActive(false);
             standButton.gameObject.SetActive(false);
             dealButton.gameObject.SetActive(true);
